@@ -18,7 +18,7 @@ class _CategoriesState extends State<Categories> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SliverToBoxAdapter(
       child: ListView.builder(
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,

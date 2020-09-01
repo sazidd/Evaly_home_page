@@ -1,6 +1,8 @@
-import 'package:evaly_home_page/confiq.dart';
+
 import 'package:evaly_home_page/models/functionModel.dart';
 import 'package:flutter/material.dart';
+
+import '../confiq.dart';
 
 class Functionality extends StatelessWidget {
   final FunctionModel functionModel;

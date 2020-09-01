@@ -1,6 +1,8 @@
-import 'package:evaly_home_page/confiq.dart';
+
 import 'package:evaly_home_page/models/productCategoryModel.dart';
 import 'package:flutter/material.dart';
+
+import '../confiq.dart';
 
 class ProductCategoryCard extends StatelessWidget {
   final ProductCategoryModel product;
