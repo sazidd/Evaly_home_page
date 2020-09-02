@@ -19,30 +19,45 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          "Evaly",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.message),
+            tooltip: 'Add new entry',
+            onPressed: () {/* ... */},
+          ),
+        ],
+        bottom: PreferredSize(
+            child: _searchBar(), preferredSize: Size.fromHeight(50)),
+        centerTitle: true,
+      ),
       drawer: AppDrawer(),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
-            title: Text(
-              "Evaly",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            centerTitle: true,
+
             expandedHeight: 260.0,
-            pinned: true,
+            //   pinned: true,
 
             // snap: false,
             flexibleSpace: Padding(
-              padding: const EdgeInsets.only(top: 70),
+              padding: const EdgeInsets.only(top: 20),
               child: FlexibleSpaceBar(
                 background: Column(
                   children: [
-                    _searchBar(),
+                    //_searchBar(),
                     _buildOfferContainer(),
                   ],
                 ),
@@ -56,13 +71,13 @@ class _HomePageState extends State<HomePage> {
                 // ),
               ),
             ),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.message),
-                tooltip: 'Add new entry',
-                onPressed: () {/* ... */},
-              ),
-            ],
+            // actions: <Widget>[
+            //   IconButton(
+            //     icon: const Icon(Icons.message),
+            //     tooltip: 'Add new entry',
+            //     onPressed: () {/* ... */},
+            //   ),
+            // ],
           ),
           SliverToBoxAdapter(
             child: SizedBox(
@@ -148,6 +163,9 @@ class _HomePageState extends State<HomePage> {
                 padding:
                     const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 0),
                 child: GridView.builder(
+                  physics: ScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
                   itemCount: products.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
